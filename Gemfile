@@ -34,11 +34,10 @@ group :development, :test do
   gem 'guard-rspec', '~> 0.7.0'
   gem 'fuubar', '~> 1.0.0'
   gem 'email_spec', '>= 1.2.1'
-  gem 'factory_girl_rails', '>= 3.2.0'
-  gem 'shoulda'
+  gem 'factory_girl', '~> 2.6.4'
   gem 'capybara'
   gem 'launchy'
-
+  gem 'shoulda', :require => false
 
   platforms :mswin, :mingw do
     gem 'win32console', '~> 1.3.0'

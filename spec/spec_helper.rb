@@ -9,8 +9,9 @@ def setup_environment
   require 'rspec/rails'
   require 'capybara/rspec'
   require 'email_spec'
-  require 'factory_girl_rails'
-  require 'shoulda/matchers/integrations/rspec'
+  require 'factory_girl'
+  # require 'shoulda/matchers/integrations/rspec'
+  require 'shoulda'
 
   Rails.backtrace_cleaner.remove_silencers!
 

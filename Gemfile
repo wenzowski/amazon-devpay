@@ -4,7 +4,9 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.3'
 
 
-gem 'devise'
+gem 'devise', '>= 2.1.0.rc2'
+gem 'cancan', '>= 1.6.7'
+gem 'rolify', '>= 3.1.0'
 
 
 # Database Configuration
@@ -28,8 +30,15 @@ gem 'jruby-openssl', :platform => :jruby
 
 
 group :development, :test do
+  gem 'rspec-rails'
   gem 'guard-rspec', '~> 0.7.0'
   gem 'fuubar', '~> 1.0.0'
+  gem 'email_spec', '>= 1.2.1'
+  gem 'factory_girl_rails', '>= 3.2.0'
+  gem 'shoulda'
+  gem 'capybara'
+  gem 'launchy'
+
 
   platforms :mswin, :mingw do
     gem 'win32console', '~> 1.3.0'

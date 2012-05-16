@@ -1,0 +1,25 @@
+language: ruby
+before_install:
+  - 'if [[ "$TRAVIS_RUBY_VERSION" =~ "jruby" ]] ; then gem update --system ; fi'
+  - 'if [[ "$DB" =~ "posgresql" ]] ; then cp config/database.yml.posgresql config/database.yml ; fi'
+  - 'if [[ "$DB" =~ "mysql" ]] ; then cp config/database.yml.mysql config/database.yml ; fi'
+before_script:
+  - 'sh -e /etc/init.d/xvfb start'
+script:
+  - 'DISPLAY=:99.0 bundle exec rspec ./spec'
+notifications:
+  email: true
+env:
+  - DB=postgresql
+  - DB=mysql
+matrix:
+  allow_failures:
+    - rvm: rbx-18mode
+    - rvm: rbx-19mode
+rvm:
+  - 1.8.7
+  - 1.9.3
+  - rbx-18mode
+  - rbx-19mode
+  - jruby-18mode
+  - jruby-19mode
